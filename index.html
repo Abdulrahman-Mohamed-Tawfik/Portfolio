@@ -52,12 +52,40 @@
 
     <section id="training" class="section">
       <div class="container">
-        <h2>Training</h2>
-        <ul>
-          <li><strong>NTI | MEAN Stack Development</strong><br>• Built secure Node.js APIs with authentication.<br>• Designed Angular responsive interfaces.<br>• Managed MongoDB NoSQL databases.</li>
-          <li><strong>ITI | Back-End Development</strong><br>• Built server-side apps with PHP & Laravel.<br>• Created responsive front-end with HTML, CSS, JS.<br>• Optimized SQL queries and designed scalable DB systems.</li>
-          <li><strong>FCIS | Git & GitHub Workshop</strong><br>• Hands-on version control using Git/GitHub.<br>• Learned collaborative workflows and repo management.</li>
-          <li><strong>ACM ASCIS | Competitive Programming Trainee</strong><br>• Enhanced problem-solving through coding challenges (Codeforces: <em>abdomohamed123</em>).</li>
+        <h2>Training & Certificates</h2>
+        <ul class="training-list">
+          <li>
+            <div class="training-item horizontal">
+              <img src="images/nti-certificate.jpg" alt="NTI MEAN Stack Certificate" class="certificate-img" style="width:120px; height:auto; cursor:pointer;" onclick="maximizeCertificate(this)">
+              <div>
+                <strong>NTI | MEAN Stack Development</strong><br>
+                • Built secure Node.js APIs with authentication.<br>
+                • Designed Angular responsive interfaces.<br>
+                • Managed MongoDB NoSQL databases.
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="training-item horizontal">
+              <img src="images/iti-certificate.jpg" alt="ITI Back-End Certificate" class="certificate-img" style="width:120px; height:auto; cursor:pointer;" onclick="maximizeCertificate(this)">
+              <div>
+                <strong>ITI | Back-End Development</strong><br>
+                • Built server-side apps with PHP & Laravel.<br>
+                • Created responsive front-end with HTML, CSS, JS.<br>
+                • Optimized SQL queries and designed scalable DB systems.
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="training-item horizontal">
+              <img src="images/fcis-certificate.png" alt="FCIS Git & GitHub Certificate" class="certificate-img" style="width:120px; height:auto; cursor:pointer;" onclick="maximizeCertificate(this)">
+              <div>
+                <strong>FCIS | Git & GitHub Workshop</strong><br>
+                • Hands-on version control using Git/GitHub.<br>
+                • Learned collaborative workflows and repo management.
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
     </section>
@@ -134,6 +162,14 @@
     <img class="img-modal-content" id="imgModalImg" alt="Maximized Project Image">
   </div>
 
+  <!-- Floating Back to Top Button -->
+  <button id="backToTopBtn" title="Back to Top">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;">
+      <circle cx="14" cy="14" r="14" fill="#0078d4"/>
+      <polyline points="8,16 14,10 20,16" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
   <footer>
     <div class="container">
       <p>&copy; 2025 Abdulrahman Mohamed Tawfik. All Rights Reserved.</p>
@@ -141,5 +177,36 @@
     </div>
   </footer>
   <script src="script.js"></script>
+  <script>
+    // Maximize certificate image
+    function maximizeCertificate(img) {
+      var modal = document.getElementById('imgModal');
+      var modalImg = document.getElementById('imgModalImg');
+      modal.style.display = "block";
+      modalImg.src = img.src;
+      modalImg.alt = img.alt;
+    }
+    // Close modal
+    document.getElementById('imgModalClose').onclick = function() {
+      document.getElementById('imgModal').style.display = "none";
+    };
+    // Hide modal when clicking outside image
+    document.getElementById('imgModal').onclick = function(e) {
+      if (e.target === this) this.style.display = "none";
+    };
+
+    // Back to Top button logic
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    window.onscroll = function() {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        backToTopBtn.style.display = "block";
+      } else {
+        backToTopBtn.style.display = "none";
+      }
+    };
+    backToTopBtn.onclick = function() {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    };
+  </script>
 </body>
 </html>

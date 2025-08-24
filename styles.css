@@ -172,29 +172,20 @@ footer a:hover {
 .img-modal {
   display: none;
   position: fixed;
-  z-index: 1000;
+  z-index: 9999;
   left: 0; top: 0;
   width: 100%; height: 100%;
   overflow: auto;
   background: rgba(0,0,0,0.8);
-  justify-content: center;
-  align-items: center;
-  pointer-events: none; /* Prevent blocking when hidden */
 }
-
-.img-modal[style*="display: flex"] {
-  pointer-events: auto; /* Enable interaction when shown */
-}
-
 .img-modal-content {
   display: block;
-  margin: auto;
+  margin: 5% auto;
   max-width: 90vw;
-  max-height: 90vh;
+  max-height: 80vh;
   border-radius: 8px;
-  box-shadow: 0 0 20px #000;
+  box-shadow: 0 0 20px #222;
 }
-
 .img-modal-close {
   position: absolute;
   top: 30px;
@@ -203,10 +194,47 @@ footer a:hover {
   font-size: 40px;
   font-weight: bold;
   cursor: pointer;
-  z-index: 1001;
-  transition: color 0.2s;
+  z-index: 10000;
 }
 
-.img-modal-close:hover {
-  color: #ff4444;
+/* Floating Back to Top Button */
+#backToTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 10001;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  padding: 0;
+  transition: box-shadow 0.2s;
+}
+#backToTopBtn svg {
+  display: block;
+  margin: auto;
+}
+#backToTopBtn:hover {
+  box-shadow: 0 4px 16px rgba(0,120,212,0.25);
+}
+
+/* Training Items */
+.training-item.horizontal {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 18px;
+}
+.training-item.horizontal .certificate-img {
+  flex-shrink: 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.training-item.horizontal div {
+  flex: 1;
 }
