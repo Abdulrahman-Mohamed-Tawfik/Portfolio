@@ -52,14 +52,51 @@ document.addEventListener('DOMContentLoaded', function() {
   const modal = document.getElementById('imgModal');
   const modalImg = document.getElementById('imgModalImg');
   const closeBtn = document.getElementById('imgModalClose');
-  const images = document.querySelectorAll('.max-img');
 
-  images.forEach(img => {
-    img.addEventListener('click', function() {
-      modal.style.display = 'flex';
-      modalImg.src = this.src;
-      modalImg.alt = this.alt;
+  // Delegate so any future .max-img (unlimited galleries) still opens the modal.
+  document.addEventListener('click', function(e) {
+    const img = e.target.closest && e.target.closest('.max-img');
+    if (!img) return;
+    modal.style.display = 'flex';
+    modalImg.src = img.src;
+    modalImg.alt = img.alt;
+  });
+
+  // Project gallery navigation (scroll one image at a time)
+  const galleries = document.querySelectorAll('.project-gallery');
+  galleries.forEach(gallery => {
+    const track = gallery.querySelector('.gallery-track');
+    const prevBtn = gallery.querySelector('.gallery-nav.prev');
+    const nextBtn = gallery.querySelector('.gallery-nav.next');
+    if (!track || !prevBtn || !nextBtn) return;
+
+    function getScrollAmount() {
+      const firstImg = track.querySelector('img');
+      if (!firstImg) return track.clientWidth;
+      const styles = window.getComputedStyle(track);
+      const gap = parseFloat(styles.columnGap || styles.gap || '0') || 0;
+      return firstImg.getBoundingClientRect().width + gap;
+    }
+
+    function updateButtons() {
+      const maxScrollLeft = track.scrollWidth - track.clientWidth;
+      prevBtn.disabled = track.scrollLeft <= 1;
+      nextBtn.disabled = track.scrollLeft >= (maxScrollLeft - 1);
+    }
+
+    prevBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
     });
+
+    nextBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+    });
+
+    track.addEventListener('scroll', updateButtons, { passive: true });
+    window.addEventListener('resize', updateButtons);
+    updateButtons();
   });
 
   closeBtn.onclick = function() {

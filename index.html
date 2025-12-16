@@ -5,22 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Abdulrahman Mohamed Tawfik - Portfolio</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/png" href="images/favicon.jpeg">
+  <link rel="icon" type="image/png" href="images/favicon-circle.png">
 </head>
 <body>
-  <header>
+  <header class="site-header">
     <div class="container">
-      <h1>Abdulrahman Mohamed Tawfik</h1>
-      <p>Giza, Egypt | +201113793255 | abdulrahmanmohamedtawfiq@gmail.com | Military status: Exempted</p>
-      <nav>
-        <a href="#objective">Objective</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#training">Training</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <div class="top-nav">
+        <div class="brand">
+          <img src="images/favicon-full-removebg-preview.png" alt="Abdulrahman Mohamed Tawfik" class="brand-img">
+          <span class="brand-name">Abdulrahman</span>
+        </div>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#objective">Objective</a>
+          <a href="#experience">Experience</a>
+          <a href="#education">Education</a>
+          <a href="#training">Training</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+
+      <div class="hero" aria-label="Intro">
+        <div class="hero-card">
+          <div class="hero-content">
+            <p class="hero-kicker">Hi, I'm</p>
+            <h1 class="hero-title">
+              <span class="hero-name">Abdulrahman Mohamed</span>
+            </h1>
+            <span class="hero-role">.NET Backend Developer</span>
+            <p class="hero-subtitle">Giza, Egypt | +201113793255 | abdulrahmanmohamedtawfiq@gmail.com | Military status: Exempted</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#projects">View Projects</a>
+              <a class="btn btn-ghost" href="#contact">Contact</a>
+            </div>
+          </div>
+
+          <div class="hero-media" aria-hidden="true">
+            <img src="images/favicon-full-removebg-preview.png" alt="" class="hero-photo">
+          </div>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -28,7 +53,7 @@
     <section id="objective" class="section">
       <div class="container">
         <h2>Objective</h2>
-        <p>.NET Backend Developer with expertise in C#, .NET Framework, MySQL and SQL Database, skilled in building scalable, high-performance applications. Committed to clean code, innovative problem-solving, and contributing to dynamic teams to deliver impactful business solutions.</p>
+        <p>Aspiring .NET Backend Developer eager to join a collaborative environment where I can leverage my experience in API development, database design, and clean coding practices to deliver efficient, scalable software solutions.</p>
       </div>
     </section>
 
@@ -56,7 +81,18 @@
         <ul class="training-list">
           <li>
             <div class="training-item horizontal">
-              <img src="images/nti-certificate.jpg" alt="NTI MEAN Stack Certificate" class="certificate-img" style="width:120px; height:auto; cursor:pointer;" onclick="maximizeCertificate(this)">
+              <img src="images/Certificates/nti-certificate.jpg" alt="DEPI .NET Stack Certificate" class="certificate-img" style="width:120px; height:auto; cursor:pointer;" onclick="maximizeCertificate(this)">
+              <div>
+                <strong>DEPI | .NET Stack Development</strong><br>
+                • Built strong full-stack development skills using .NET Core (API &amp; MVC), C#, and modern front-end technologies (HTML5, CSS3, JavaScript), with a focus on creating scalable, secure, and maintainable web applications.<br>
+                • Gained comprehensive practical experience in SQL Server programming, version control with Git/GitHub, functional documentation, unit testing, and Docker containerization, applying industry-standard development practices throughout the course.<br>
+                • Successfully implemented multiple hands-on exercises and a full capstone project, reinforcing real-world problem solving, clean architecture, and end-to-end application development from design to deployment.
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="training-item horizontal">
+              <img src="images/Certificates/nti-certificate.jpg" alt="NTI MEAN Stack Certificate" class="certificate-img" style="width:120px; height:auto; cursor:pointer;" onclick="maximizeCertificate(this)">
               <div>
                 <strong>NTI | MEAN Stack Development</strong><br>
                 • Built secure Node.js APIs with authentication.<br>
@@ -67,7 +103,7 @@
           </li>
           <li>
             <div class="training-item horizontal">
-              <img src="images/iti-certificate.jpg" alt="ITI Back-End Certificate" class="certificate-img" style="width:120px; height:auto; cursor:pointer;" onclick="maximizeCertificate(this)">
+              <img src="images/Certificates/iti-certificate.jpg" alt="ITI Back-End Certificate" class="certificate-img" style="width:120px; height:auto; cursor:pointer;" onclick="maximizeCertificate(this)">
               <div>
                 <strong>ITI | Back-End Development</strong><br>
                 • Built server-side apps with PHP & Laravel.<br>
@@ -78,7 +114,7 @@
           </li>
           <li>
             <div class="training-item horizontal">
-              <img src="images/fcis-certificate.png" alt="FCIS Git & GitHub Certificate" class="certificate-img" style="width:120px; height:auto; cursor:pointer;" onclick="maximizeCertificate(this)">
+              <img src="images/Certificates/fcis-certificate.png" alt="FCIS Git & GitHub Certificate" class="certificate-img" style="width:120px; height:auto; cursor:pointer;" onclick="maximizeCertificate(this)">
               <div>
                 <strong>FCIS | Git & GitHub Workshop</strong><br>
                 • Hands-on version control using Git/GitHub.<br>
@@ -95,35 +131,96 @@
         <h2>Projects</h2>
         <div class="projects-grid">
           <div class="project-card">
-            <img src="images/brainiacs.jpg" alt="Brainiacs Project" class="max-img">
+            <div class="project-gallery" aria-label="BuyMate Store screenshots">
+              <button class="gallery-nav prev" type="button" aria-label="Previous image">&#10094;</button>
+              <div class="gallery-track" tabindex="0">
+                <img src="images/Projects/BuyMate/buymate-store.png" alt="BuyMate Store Screenshot 1" class="max-img">
+                <img src="images/Projects/BuyMate/buymate-store.png" alt="BuyMate Store Screenshot 2" class="max-img">
+              </div>
+              <button class="gallery-nav next" type="button" aria-label="Next image">&#10095;</button>
+            </div>
+            <h3>BuyMate Store</h3>
+            <p>.NET 8 Razor e-commerce app (ASP.NET MVC, Code First) using C# and SQL Server/MySQL, featuring secure authentication, layered cart/orders logic, and a responsive Bootstrap + AJAX UI for real-time cart updates.</p>
+            <a class="project-link" href="https://github.com/Abdulrahman-Mohamed-Tawfik/BuyMate/tree/Develop" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+          <div class="project-card">
+            <div class="project-gallery" aria-label="Brainiacs screenshots">
+              <button class="gallery-nav prev" type="button" aria-label="Previous image">&#10094;</button>
+              <div class="gallery-track" tabindex="0">
+                <img src="images/Projects/Brainiacs/brainiacs.jpg" alt="Brainiacs Screenshot 1" class="max-img">
+                <img src="images/Projects/Brainiacs/brainiacs1.png" alt="Brainiacs Screenshot 2" class="max-img">
+                <img src="images/Projects/Brainiacs/brainiacs2.png" alt="Brainiacs Screenshot 3" class="max-img">
+              </div>
+              <button class="gallery-nav next" type="button" aria-label="Next image">&#10095;</button>
+            </div>
             <h3>Brainiacs</h3>
             <p>Interactive gaming platform using .NET, SignalR, C#, MySQL (Code First). Users test knowledge through games and compete for prizes.</p>
           </div>
           <div class="project-card">
-            <img src="images/gamer-league.png" alt="Gamer League Project" class="max-img">
+            <div class="project-gallery" aria-label="Gamer League screenshots">
+              <button class="gallery-nav prev" type="button" aria-label="Previous image">&#10094;</button>
+              <div class="gallery-track" tabindex="0">
+                <img src="images/Projects/GamerLeague/gamer-league.png" alt="Gamer League Screenshot 1" class="max-img">
+                <img src="images/Projects/GamerLeague/gamer-league1.png" alt="Gamer League Screenshot 2" class="max-img">
+                <img src="images/Projects/GamerLeague/gamer-league.png" alt="Gamer League Screenshot 3" class="max-img">
+              </div>
+              <button class="gallery-nav next" type="button" aria-label="Next image">&#10095;</button>
+            </div>
             <h3>Gamer League</h3>
             <p>Matchmaking platform for games (Pubg, Freefire, Fortnite). Built with .NET, Web API, C#, MySQL (Database First).</p>
           </div>
           <div class="project-card">
-            <img src="images/explore-egypt.png" alt="Explore Egypt Project" class="max-img">
+            <div class="project-gallery" aria-label="Explore Egypt screenshots">
+              <button class="gallery-nav prev" type="button" aria-label="Previous image">&#10094;</button>
+              <div class="gallery-track" tabindex="0">
+                <img src="images/Projects/ExploreEgypt/explore-egypt.png" alt="Explore Egypt Screenshot 1" class="max-img">
+                <img src="images/Projects/ExploreEgypt/explore-egypt.png" alt="Explore Egypt Screenshot 2" class="max-img">
+              </div>
+              <button class="gallery-nav next" type="button" aria-label="Next image">&#10095;</button>
+            </div>
             <h3>Explore Egypt </h3>
             <h5>(Graduation Project)</h5>
-            <p>Web & mobile app to explore 40+ landmarks. .NET backend, SQL Server, AI-powered image search (93.3% accuracy). <a href="https://github.com/Abdulrahman-Mohamed-Tawfik/Explore-Egypt" target="_blank">GitHub</a></p>
+            <p>Web & mobile app to explore 40+ landmarks. .NET backend, SQL Server, AI-powered image search (93.3% accuracy).</p>
+            <a class="project-link" href="https://github.com/Abdulrahman-Mohamed-Tawfik/Explore-Egypt" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
           <div class="project-card">
-            <img src="images/bus-reservation.jpg" alt="Bus Trip Reservation System" class="max-img">
+            <div class="project-gallery" aria-label="Bus Trip Reservation System screenshots">
+              <button class="gallery-nav prev" type="button" aria-label="Previous image">&#10094;</button>
+              <div class="gallery-track" tabindex="0">
+                <img src="images/Projects/BusReservationSystem/bus-reservation.jpg" alt="Bus Trip Reservation Screenshot 1" class="max-img">
+                <img src="images/Projects/BusReservationSystem/bus-reservation.jpg" alt="Bus Trip Reservation Screenshot 2" class="max-img">
+              </div>
+              <button class="gallery-nav next" type="button" aria-label="Next image">&#10095;</button>
+            </div>
             <h3>Bus Trip Reservation System</h3>
-            <p>Oracle DB & Forms system for managing reservations. Includes ERD, tables, 4 forms, 2 reports. <a href="https://github.com/Abdulrahman-Mohamed-Tawfik/Bus-Trip-reservation-System" target="_blank">GitHub</a></p>
+            <p>Oracle DB & Forms system for managing reservations. Includes ERD, tables, 4 forms, 2 reports.</p>
+            <a class="project-link" href="https://github.com/Abdulrahman-Mohamed-Tawfik/Bus-Trip-reservation-System" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
           <div class="project-card">
-            <img src="images/vaccine.png" alt="Vaccine Tracking System" class="max-img">
+            <div class="project-gallery" aria-label="Vaccine Tracking System screenshots">
+              <button class="gallery-nav prev" type="button" aria-label="Previous image">&#10094;</button>
+              <div class="gallery-track" tabindex="0">
+                <img src="images/Projects/VaccineTrackingSystem/vaccine.png" alt="Vaccine Tracking Screenshot 1" class="max-img">
+                <img src="images/Projects/VaccineTrackingSystem/vaccine.png" alt="Vaccine Tracking Screenshot 2" class="max-img">
+              </div>
+              <button class="gallery-nav next" type="button" aria-label="Next image">&#10095;</button>
+            </div>
             <h3>Vaccine Tracking System</h3>
-            <p>Windows Forms system in C++ for vaccination records. Optimized with advanced data structures. <a href="https://github.com/AbdulrahmanMohamedTawfik/Vaccine-Tracking-System" target="_blank">GitHub</a></p>
+            <p>Windows Forms system in C++ for vaccination records. Optimized with advanced data structures.</p>
+            <a class="project-link" href="https://github.com/AbdulrahmanMohamedTawfik/Vaccine-Tracking-System" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
           <div class="project-card">
-            <img src="images/million.png" alt="Million LE Game" class="max-img">
+            <div class="project-gallery" aria-label="Million LE screenshots">
+              <button class="gallery-nav prev" type="button" aria-label="Previous image">&#10094;</button>
+              <div class="gallery-track" tabindex="0">
+                <img src="images/Projects/Million/million.png" alt="Million LE Screenshot 1" class="max-img">
+                <img src="images/Projects/Million/million.png" alt="Million LE Screenshot 2" class="max-img">
+              </div>
+              <button class="gallery-nav next" type="button" aria-label="Next image">&#10095;</button>
+            </div>
             <h3>Million LE</h3>
-            <p>Bilingual quiz game with 300+ questions using C# & .NET. Increased engagement 25%, reduced bugs 30%. <a href="https://github.com/AbdulrahmanMohamedTawfik/Million" target="_blank">GitHub</a></p>
+            <p>Bilingual quiz game with 300+ questions using C# & .NET. Increased engagement 25%, reduced bugs 30%.</p>
+            <a class="project-link" href="https://github.com/AbdulrahmanMohamedTawfik/Million" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
         </div>
       </div>
@@ -165,7 +262,7 @@
   <!-- Floating Back to Top Button -->
   <button id="backToTopBtn" title="Back to Top">
     <svg width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;">
-      <polyline points="8,16 14,10 20,16" stroke="#4a4a8c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <polyline points="8,16 14,10 20,16" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
   </button>
 
