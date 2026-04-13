@@ -111,29 +111,94 @@ document.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById('imgModal');
   const modalImg = document.getElementById('imgModalImg');
   const modalClose = document.getElementById('imgModalClose');
+  const modalPrev = document.getElementById('imgModalPrev');
+  const modalNext = document.getElementById('imgModalNext');
+  let modalImages = [];
+  let modalIndex = 0;
+  let touchStartX = 0;
+
+  const renderModalImage = () => {
+    if (!modalImages.length) return;
+    const current = modalImages[modalIndex];
+    modalImg.src = current.src;
+    modalImg.alt = current.alt || 'Maximized Image';
+    const showNav = modalImages.length > 1;
+    modalPrev.classList.toggle('hidden', !showNav);
+    modalNext.classList.toggle('hidden', !showNav);
+  };
+
+  const openModal = (images, index) => {
+    modalImages = images;
+    modalIndex = index;
+    renderModalImage();
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  };
+
+  const navigateModal = (direction) => {
+    if (modalImages.length <= 1) return;
+    const count = modalImages.length;
+    modalIndex = (modalIndex + direction + count) % count;
+    renderModalImage();
+  };
 
   document.addEventListener('click', (e) => {
-    const img = e.target.closest('.max-img');
+    let img = e.target.closest('.max-img');
+    if (!img) {
+      const certWrapper = e.target.closest('.cert-image-wrapper');
+      if (certWrapper) {
+        img = certWrapper.querySelector('.max-img');
+      }
+    }
     if (!img) return;
-    modal.style.display = 'flex';
-    modalImg.src = img.src;
-    modalImg.alt = img.alt;
-    document.body.style.overflow = 'hidden';
+
+    const projectGallery = img.closest('.project-gallery');
+    if (projectGallery) {
+      const galleryImages = Array.from(projectGallery.querySelectorAll('.max-img'));
+      const currentIndex = Math.max(galleryImages.indexOf(img), 0);
+      openModal(galleryImages, currentIndex);
+      return;
+    }
+
+    openModal([img], 0);
   });
 
   const closeModal = () => {
     modal.style.display = 'none';
     modalImg.src = '';
     document.body.style.overflow = '';
+    modalImages = [];
+    modalIndex = 0;
   };
 
+  modalPrev.addEventListener('click', () => navigateModal(-1));
+  modalNext.addEventListener('click', () => navigateModal(1));
   modalClose.addEventListener('click', closeModal);
   modal.addEventListener('click', (e) => {
     if (e.target === modal) closeModal();
   });
   document.addEventListener('keydown', (e) => {
+    if (modal.style.display !== 'flex') return;
     if (e.key === 'Escape') closeModal();
+    if (e.key === 'ArrowLeft') navigateModal(-1);
+    if (e.key === 'ArrowRight') navigateModal(1);
   });
+
+  modal.addEventListener('touchstart', (e) => {
+    if (!e.changedTouches || !e.changedTouches.length) return;
+    touchStartX = e.changedTouches[0].clientX;
+  }, { passive: true });
+
+  modal.addEventListener('touchend', (e) => {
+    if (!e.changedTouches || !e.changedTouches.length || !touchStartX) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const deltaX = touchEndX - touchStartX;
+    const swipeThreshold = 40;
+    if (Math.abs(deltaX) >= swipeThreshold) {
+      navigateModal(deltaX < 0 ? 1 : -1);
+    }
+    touchStartX = 0;
+  }, { passive: true });
 
   // ===== PROJECT GALLERY NAVIGATION =====
   document.querySelectorAll('.project-gallery').forEach(gallery => {
@@ -142,6 +207,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = gallery.querySelector('.gallery-nav.next');
     if (!track || !prevBtn || !nextBtn) return;
 
+    const images = Array.from(track.querySelectorAll('img'));
+    if (images.length <= 1) {
+      prevBtn.disabled = true;
+      nextBtn.disabled = true;
+      return;
+    }
+
+    const AUTO_SLIDE_MS = 3000;
+    let currentIndex = 0;
+    let autoSlideTimer = null;
+
     const getScrollAmount = () => {
       const firstImg = track.querySelector('img');
       if (!firstImg) return track.clientWidth;
@@ -149,23 +225,58 @@ document.addEventListener('DOMContentLoaded', () => {
       return firstImg.getBoundingClientRect().width + gap;
     };
 
+    const scrollToIndex = (index, behavior = 'smooth') => {
+      const safeIndex = ((index % images.length) + images.length) % images.length;
+      currentIndex = safeIndex;
+      track.scrollTo({ left: getScrollAmount() * safeIndex, behavior });
+    };
+
+    const goNext = () => {
+      scrollToIndex(currentIndex + 1);
+    };
+
+    const goPrev = () => {
+      scrollToIndex(currentIndex - 1);
+    };
+
+    const startAutoSlide = () => {
+      stopAutoSlide();
+      autoSlideTimer = setInterval(goNext, AUTO_SLIDE_MS);
+    };
+
+    const stopAutoSlide = () => {
+      if (!autoSlideTimer) return;
+      clearInterval(autoSlideTimer);
+      autoSlideTimer = null;
+    };
+
     const updateButtons = () => {
-      const maxScroll = track.scrollWidth - track.clientWidth;
-      prevBtn.disabled = track.scrollLeft <= 1;
-      nextBtn.disabled = track.scrollLeft >= maxScroll - 1;
+      const scrollAmount = getScrollAmount();
+      currentIndex = Math.round(track.scrollLeft / scrollAmount);
+      prevBtn.disabled = false;
+      nextBtn.disabled = false;
     };
 
     prevBtn.addEventListener('click', () => {
-      track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+      goPrev();
+      startAutoSlide();
     });
 
     nextBtn.addEventListener('click', () => {
-      track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+      goNext();
+      startAutoSlide();
     });
 
     track.addEventListener('scroll', updateButtons, { passive: true });
+    gallery.addEventListener('mouseenter', stopAutoSlide);
+    gallery.addEventListener('mouseleave', startAutoSlide);
+    gallery.addEventListener('focusin', stopAutoSlide);
+    gallery.addEventListener('focusout', startAutoSlide);
+    track.addEventListener('touchstart', stopAutoSlide, { passive: true });
+    track.addEventListener('touchend', startAutoSlide, { passive: true });
     window.addEventListener('resize', updateButtons);
     updateButtons();
+    startAutoSlide();
   });
 
   // ===== BACK TO TOP =====
