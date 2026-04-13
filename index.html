@@ -3,306 +3,607 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abdulrahman Mohamed Tawfik - Portfolio</title>
+  <title>Abdulrahman Mohamed Tawfik — .NET Backend Developer</title>
+  <meta name="description" content="Portfolio of Abdulrahman Mohamed Tawfik — .NET Backend Developer specializing in API development, database design, and clean architecture.">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/png" href="images/favicon-circle.png">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <div class="top-nav">
-        <div class="brand">
-          <img src="images/favicon-full-removebg-preview.png" alt="Abdulrahman Mohamed Tawfik" class="brand-img">
-          <span class="brand-name">Abdulrahman</span>
-        </div>
-        <nav class="nav-links" aria-label="Primary">
-          <a href="#objective">Objective</a>
-          <a href="#experience">Experience</a>
-          <a href="#education">Education</a>
-          <a href="#training">Training</a>
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </div>
 
-      <div class="hero" aria-label="Intro">
-        <div class="hero-card">
-          <div class="hero-content">
-            <p class="hero-kicker">Hi, I'm</p>
-            <h1 class="hero-title">
-              <span class="hero-name">Abdulrahman Mohamed</span>
-            </h1>
-            <span class="hero-role">.NET Backend Developer</span>
-            <p class="hero-subtitle">Giza, Egypt | +201113793255 | abdulrahmanmohamedtawfiq@gmail.com | Military status: Exempted</p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="#projects">View Projects</a>
-              <a class="btn btn-ghost" href="#contact">Contact</a>
-            </div>
-          </div>
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <img src="images/favicon-full-removebg-preview.png" alt="" class="nav-logo-img">
+        <span>Abdulrahman<span class="logo-dot">.</span></span>
+      </a>
+      <div class="nav-menu" id="navMenu">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#training" class="nav-link">Certifications</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
 
-          <div class="hero-media" aria-hidden="true">
-            <img src="images/favicon-full-removebg-preview.png" alt="" class="hero-photo">
-          </div>
+  <!-- ===== HERO ===== -->
+  <header class="hero" id="hero">
+    <div class="hero-particles" aria-hidden="true"></div>
+    <div class="hero-container">
+      <div class="hero-content">
+        <p class="hero-greeting" data-animate="fade-up">Hello, I'm</p>
+        <h1 class="hero-name" data-animate="fade-up" data-delay="100">
+          Abdulrahman<br>Mohamed
+        </h1>
+        <div class="hero-role-wrapper" data-animate="fade-up" data-delay="200">
+          <span class="hero-role-tag">.NET Backend Developer</span>
+        </div>
+        <p class="hero-description" data-animate="fade-up" data-delay="300">
+          Building efficient, scalable software solutions with clean architecture and modern .NET technologies.
+        </p>
+        <div class="hero-cta" data-animate="fade-up" data-delay="400">
+          <a href="#projects" class="btn btn-primary">
+            <i class="fas fa-rocket"></i> View My Work
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            <i class="fas fa-paper-plane"></i> Get In Touch
+          </a>
+        </div>
+        <div class="hero-social" data-animate="fade-up" data-delay="500">
+          <a href="https://github.com/Abdulrahman-Mohamed-Tawfik" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="http://www.linkedin.com/in/abdulrahman-mohamed-123abc" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="mailto:abdulrahmanmohamedtawfiq@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
         </div>
       </div>
+      <div class="hero-visual" data-animate="fade-left" data-delay="200">
+        <div class="hero-image-wrapper">
+          <img src="images/favicon-full-removebg-preview.png" alt="Abdulrahman Mohamed Tawfik" class="hero-image">
+          <div class="hero-image-ring"></div>
+          <div class="hero-image-ring ring-2"></div>
+        </div>
+        <div class="hero-floating-badge badge-1">
+          <i class="fas fa-code"></i> C# / .NET
+        </div>
+        <div class="hero-floating-badge badge-2">
+          <i class="fas fa-database"></i> SQL Server
+        </div>
+        <div class="hero-floating-badge badge-3">
+          <i class="fas fa-server"></i> REST APIs
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <a href="#about"><i class="fas fa-chevron-down"></i></a>
     </div>
   </header>
 
   <main>
-    <section id="objective" class="section">
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="section">
       <div class="container">
-        <h2>Objective</h2>
-        <p>Aspiring .NET Backend Developer eager to join a collaborative environment where I can leverage my experience in API development, database design, and clean coding practices to deliver efficient, scalable software solutions.</p>
+        <div class="section-header">
+          <span class="section-tag"><i class="fas fa-user"></i> About Me</span>
+          <h2>Who I Am</h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>Aspiring <strong>.NET Backend Developer</strong> eager to join a collaborative environment where I can leverage my experience in API development, database design, and clean coding practices to deliver efficient, scalable software solutions.</p>
+            <div class="about-details">
+              <div class="about-detail">
+                <i class="fas fa-graduation-cap"></i>
+                <div>
+                  <strong>B.Sc. Computer Science</strong>
+                  <span>Ain Shams University — GPA: 2.97 (Very Good)</span>
+                </div>
+              </div>
+              <div class="about-detail">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                  <strong>Location</strong>
+                  <span>Giza, Egypt</span>
+                </div>
+              </div>
+              <div class="about-detail">
+                <i class="fas fa-shield-alt"></i>
+                <div>
+                  <strong>Military Status</strong>
+                  <span>Exempted</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="about-stats">
+            <div class="stat-card">
+              <span class="stat-number" data-count="7">0</span>
+              <span class="stat-label">Projects Built</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" data-count="4">0</span>
+              <span class="stat-label">Certifications</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" data-count="3">0</span>
+              <span class="stat-label">Work Experiences</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">1+</span>
+              <span class="stat-label">Years Coding</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="experience" class="section">
+    <!-- ===== EXPERIENCE ===== -->
+    <section id="experience" class="section section-alt">
       <div class="container">
-        <h2>Experience</h2>
-        <ul>
-          <li><strong>Junior .NET Developer</strong>, Grand Technology (Apr 2025)<br>• Continued the development of new RESTful APIs, improving response time and reliability.<br>• Participated in code reviews and performance tuning.<br>• Contributed to agile practices, sprint planning, and retrospectives.</li>
-          <li><strong>.NET Intern</strong>, Grand Technology (Jan 2025)<br>• Assisted in building and testing API endpoints under senior guidance.<br>• Practical exposure to SDLC from requirement gathering to deployment.</li>
-          <li><strong>Coding Instructor</strong>, Royal Academy (Oct 2024)<br>• Instructed college students on coding principles and advanced concepts including C++, C#, and OOP.</li>
-        </ul>
+        <div class="section-header">
+          <span class="section-tag"><i class="fas fa-briefcase"></i> Experience</span>
+          <h2>Work History</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item" data-animate="fade-right">
+            <div class="timeline-marker">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3>Junior .NET Developer</h3>
+                <span class="timeline-company">Grand Technology</span>
+              </div>
+              <span class="timeline-date"><i class="far fa-calendar-alt"></i> Apr 2025</span>
+              <ul>
+                <li>Continued the development of new RESTful APIs, improving response time and reliability.</li>
+                <li>Participated in code reviews and performance tuning.</li>
+                <li>Contributed to agile practices, sprint planning, and retrospectives.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item" data-animate="fade-left">
+            <div class="timeline-marker">
+              <i class="fas fa-code"></i>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3>.NET Intern</h3>
+                <span class="timeline-company">Grand Technology</span>
+              </div>
+              <span class="timeline-date"><i class="far fa-calendar-alt"></i> Jan 2025</span>
+              <ul>
+                <li>Assisted in building and testing API endpoints under senior guidance.</li>
+                <li>Practical exposure to SDLC from requirement gathering to deployment.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item" data-animate="fade-right">
+            <div class="timeline-marker">
+              <i class="fas fa-chalkboard-teacher"></i>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3>Coding Instructor</h3>
+                <span class="timeline-company">Royal Academy</span>
+              </div>
+              <span class="timeline-date"><i class="far fa-calendar-alt"></i> Oct 2024</span>
+              <ul>
+                <li>Instructed college students on coding principles and advanced concepts including C++, C#, and OOP.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="education" class="section">
-      <div class="container">
-        <h2>Education</h2>
-        <p><strong>Bachelor of Computer Science</strong>, Faculty of Computer and Information Science, Ain Shams University (2024)<br>GPA: 2.97 (Very Good)</p>
-      </div>
-    </section>
-
-    <section id="training" class="section">
-      <div class="container">
-        <h2>Training & Certificates</h2>
-        <ul class="training-list">
-          <li>
-            <div class="training-item horizontal">
-              <img src="images/Certificates/nti-certificate.jpg" alt="DEPI .NET Stack Certificate" class="certificate-img" style="width:120px; height:auto; cursor:pointer;" onclick="maximizeCertificate(this)">
-              <div>
-                <strong>DEPI | .NET Stack Development</strong><br>
-                • Built strong full-stack development skills using .NET Core (API &amp; MVC), C#, and modern front-end technologies (HTML5, CSS3, JavaScript), with a focus on creating scalable, secure, and maintainable web applications.<br>
-                • Gained comprehensive practical experience in SQL Server programming, version control with Git/GitHub, functional documentation, unit testing, and Docker containerization, applying industry-standard development practices throughout the course.<br>
-                • Successfully implemented multiple hands-on exercises and a full capstone project, reinforcing real-world problem solving, clean architecture, and end-to-end application development from design to deployment.
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="training-item horizontal">
-              <img src="images/Certificates/nti-certificate.jpg" alt="NTI MEAN Stack Certificate" class="certificate-img" style="width:120px; height:auto; cursor:pointer;" onclick="maximizeCertificate(this)">
-              <div>
-                <strong>NTI | MEAN Stack Development</strong><br>
-                • Built secure Node.js APIs with authentication.<br>
-                • Designed Angular responsive interfaces.<br>
-                • Managed MongoDB NoSQL databases.
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="training-item horizontal">
-              <img src="images/Certificates/iti-certificate.jpg" alt="ITI Back-End Certificate" class="certificate-img" style="width:120px; height:auto; cursor:pointer;" onclick="maximizeCertificate(this)">
-              <div>
-                <strong>ITI | Back-End Development</strong><br>
-                • Built server-side apps with PHP & Laravel.<br>
-                • Created responsive front-end with HTML, CSS, JS.<br>
-                • Optimized SQL queries and designed scalable DB systems.
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="training-item horizontal">
-              <img src="images/Certificates/fcis-certificate.png" alt="FCIS Git & GitHub Certificate" class="certificate-img" style="width:120px; height:auto; cursor:pointer;" onclick="maximizeCertificate(this)">
-              <div>
-                <strong>FCIS | Git & GitHub Workshop</strong><br>
-                • Hands-on version control using Git/GitHub.<br>
-                • Learned collaborative workflows and repo management.
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-
+    <!-- ===== PROJECTS ===== -->
     <section id="projects" class="section">
       <div class="container">
-        <h2>Projects</h2>
+        <div class="section-header">
+          <span class="section-tag"><i class="fas fa-folder-open"></i> Portfolio</span>
+          <h2>Featured Projects</h2>
+        </div>
         <div class="projects-grid">
-          <div class="project-card">
-            <div class="project-gallery" aria-label="BuyMate Store screenshots">
+
+          <article class="project-card" data-animate="fade-up">
+            <div class="project-gallery">
               <button class="gallery-nav prev" type="button" aria-label="Previous image">&#10094;</button>
-              <div class="gallery-track" tabindex="0">
+              <div class="gallery-track">
                 <img src="images/Projects/BuyMate/buymate-store.png" alt="BuyMate Store Screenshot 1" class="max-img">
                 <img src="images/Projects/BuyMate/buymate-store.png" alt="BuyMate Store Screenshot 2" class="max-img">
               </div>
               <button class="gallery-nav next" type="button" aria-label="Next image">&#10095;</button>
             </div>
-            <h3>BuyMate Store</h3>
-            <p>.NET 8 Razor e-commerce app (ASP.NET MVC, Code First) using C# and SQL Server/MySQL, featuring secure authentication, layered cart/orders logic, and a responsive Bootstrap + AJAX UI for real-time cart updates.</p>
-            <a class="project-link" href="https://github.com/Abdulrahman-Mohamed-Tawfik/BuyMate/tree/Develop" target="_blank" rel="noopener noreferrer">GitHub</a>
-          </div>
-          <div class="project-card">
-            <div class="project-gallery" aria-label="Brainiacs screenshots">
+            <div class="project-body">
+              <h3>BuyMate Store</h3>
+              <p>.NET 8 Razor e-commerce app (ASP.NET MVC, Code First) using C# and SQL Server/MySQL, featuring secure authentication, layered cart/orders logic, and a responsive Bootstrap + AJAX UI.</p>
+              <div class="project-tags">
+                <span>.NET 8</span><span>C#</span><span>MVC</span><span>SQL Server</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Abdulrahman-Mohamed-Tawfik/BuyMate/tree/Develop" target="_blank" rel="noopener"><i class="fab fa-github"></i> Source Code</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-animate="fade-up" data-delay="100">
+            <div class="project-gallery">
               <button class="gallery-nav prev" type="button" aria-label="Previous image">&#10094;</button>
-              <div class="gallery-track" tabindex="0">
+              <div class="gallery-track">
                 <img src="images/Projects/Brainiacs/brainiacs.jpg" alt="Brainiacs Screenshot 1" class="max-img">
                 <img src="images/Projects/Brainiacs/brainiacs1.png" alt="Brainiacs Screenshot 2" class="max-img">
                 <img src="images/Projects/Brainiacs/brainiacs2.png" alt="Brainiacs Screenshot 3" class="max-img">
               </div>
               <button class="gallery-nav next" type="button" aria-label="Next image">&#10095;</button>
             </div>
-            <h3>Brainiacs</h3>
-            <p>Interactive gaming platform using .NET, SignalR, C#, MySQL (Code First). Users test knowledge through games and compete for prizes.</p>
-          </div>
-          <div class="project-card">
-            <div class="project-gallery" aria-label="Gamer League screenshots">
+            <div class="project-body">
+              <h3>Brainiacs</h3>
+              <p>Interactive gaming platform using .NET, SignalR, C#, MySQL (Code First). Users test knowledge through games and compete for prizes.</p>
+              <div class="project-tags">
+                <span>.NET</span><span>SignalR</span><span>C#</span><span>MySQL</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-animate="fade-up" data-delay="200">
+            <div class="project-gallery">
               <button class="gallery-nav prev" type="button" aria-label="Previous image">&#10094;</button>
-              <div class="gallery-track" tabindex="0">
+              <div class="gallery-track">
                 <img src="images/Projects/GamerLeague/gamer-league.png" alt="Gamer League Screenshot 1" class="max-img">
                 <img src="images/Projects/GamerLeague/gamer-league1.png" alt="Gamer League Screenshot 2" class="max-img">
                 <img src="images/Projects/GamerLeague/gamer-league.png" alt="Gamer League Screenshot 3" class="max-img">
               </div>
               <button class="gallery-nav next" type="button" aria-label="Next image">&#10095;</button>
             </div>
-            <h3>Gamer League</h3>
-            <p>Matchmaking platform for games (Pubg, Freefire, Fortnite). Built with .NET, Web API, C#, MySQL (Database First).</p>
-          </div>
-          <div class="project-card">
-            <div class="project-gallery" aria-label="Explore Egypt screenshots">
+            <div class="project-body">
+              <h3>Gamer League</h3>
+              <p>Matchmaking platform for games (PUBG, Free Fire, Fortnite). Built with .NET, Web API, C#, MySQL (Database First).</p>
+              <div class="project-tags">
+                <span>.NET</span><span>Web API</span><span>C#</span><span>MySQL</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card featured" data-animate="fade-up">
+            <div class="project-featured-badge"><i class="fas fa-star"></i> Graduation Project</div>
+            <div class="project-gallery">
               <button class="gallery-nav prev" type="button" aria-label="Previous image">&#10094;</button>
-              <div class="gallery-track" tabindex="0">
+              <div class="gallery-track">
                 <img src="images/Projects/ExploreEgypt/explore-egypt.png" alt="Explore Egypt Screenshot 1" class="max-img">
                 <img src="images/Projects/ExploreEgypt/explore-egypt.png" alt="Explore Egypt Screenshot 2" class="max-img">
               </div>
               <button class="gallery-nav next" type="button" aria-label="Next image">&#10095;</button>
             </div>
-            <h3>Explore Egypt </h3>
-            <h5>(Graduation Project)</h5>
-            <p>Web & mobile app to explore 40+ landmarks. .NET backend, SQL Server, AI-powered image search (93.3% accuracy).</p>
-            <a class="project-link" href="https://github.com/Abdulrahman-Mohamed-Tawfik/Explore-Egypt" target="_blank" rel="noopener noreferrer">GitHub</a>
-          </div>
-          <div class="project-card">
-            <div class="project-gallery" aria-label="Bus Trip Reservation System screenshots">
+            <div class="project-body">
+              <h3>Explore Egypt</h3>
+              <p>Web & mobile app to explore 40+ landmarks. .NET backend, SQL Server, AI-powered image search with 93.3% accuracy.</p>
+              <div class="project-tags">
+                <span>.NET</span><span>SQL Server</span><span>AI/ML</span><span>Mobile</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Abdulrahman-Mohamed-Tawfik/Explore-Egypt" target="_blank" rel="noopener"><i class="fab fa-github"></i> Source Code</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-animate="fade-up" data-delay="100">
+            <div class="project-gallery">
               <button class="gallery-nav prev" type="button" aria-label="Previous image">&#10094;</button>
-              <div class="gallery-track" tabindex="0">
+              <div class="gallery-track">
                 <img src="images/Projects/BusReservationSystem/bus-reservation.jpg" alt="Bus Trip Reservation Screenshot 1" class="max-img">
                 <img src="images/Projects/BusReservationSystem/bus-reservation.jpg" alt="Bus Trip Reservation Screenshot 2" class="max-img">
               </div>
               <button class="gallery-nav next" type="button" aria-label="Next image">&#10095;</button>
             </div>
-            <h3>Bus Trip Reservation System</h3>
-            <p>Oracle DB & Forms system for managing reservations. Includes ERD, tables, 4 forms, 2 reports.</p>
-            <a class="project-link" href="https://github.com/Abdulrahman-Mohamed-Tawfik/Bus-Trip-reservation-System" target="_blank" rel="noopener noreferrer">GitHub</a>
-          </div>
-          <div class="project-card">
-            <div class="project-gallery" aria-label="Vaccine Tracking System screenshots">
+            <div class="project-body">
+              <h3>Bus Trip Reservation System</h3>
+              <p>Oracle DB & Forms system for managing reservations. Includes ERD, tables, 4 forms, 2 reports.</p>
+              <div class="project-tags">
+                <span>Oracle</span><span>DB Design</span><span>Forms</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Abdulrahman-Mohamed-Tawfik/Bus-Trip-reservation-System" target="_blank" rel="noopener"><i class="fab fa-github"></i> Source Code</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-animate="fade-up" data-delay="200">
+            <div class="project-gallery">
               <button class="gallery-nav prev" type="button" aria-label="Previous image">&#10094;</button>
-              <div class="gallery-track" tabindex="0">
+              <div class="gallery-track">
                 <img src="images/Projects/VaccineTrackingSystem/vaccine.png" alt="Vaccine Tracking Screenshot 1" class="max-img">
                 <img src="images/Projects/VaccineTrackingSystem/vaccine.png" alt="Vaccine Tracking Screenshot 2" class="max-img">
               </div>
               <button class="gallery-nav next" type="button" aria-label="Next image">&#10095;</button>
             </div>
-            <h3>Vaccine Tracking System</h3>
-            <p>Windows Forms system in C++ for vaccination records. Optimized with advanced data structures.</p>
-            <a class="project-link" href="https://github.com/AbdulrahmanMohamedTawfik/Vaccine-Tracking-System" target="_blank" rel="noopener noreferrer">GitHub</a>
-          </div>
-          <div class="project-card">
-            <div class="project-gallery" aria-label="Million LE screenshots">
+            <div class="project-body">
+              <h3>Vaccine Tracking System</h3>
+              <p>Windows Forms system in C++ for vaccination records. Optimized with advanced data structures.</p>
+              <div class="project-tags">
+                <span>C++</span><span>WinForms</span><span>Data Structures</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/AbdulrahmanMohamedTawfik/Vaccine-Tracking-System" target="_blank" rel="noopener"><i class="fab fa-github"></i> Source Code</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-animate="fade-up">
+            <div class="project-gallery">
               <button class="gallery-nav prev" type="button" aria-label="Previous image">&#10094;</button>
-              <div class="gallery-track" tabindex="0">
+              <div class="gallery-track">
                 <img src="images/Projects/Million/million.png" alt="Million LE Screenshot 1" class="max-img">
                 <img src="images/Projects/Million/million.png" alt="Million LE Screenshot 2" class="max-img">
               </div>
               <button class="gallery-nav next" type="button" aria-label="Next image">&#10095;</button>
             </div>
-            <h3>Million LE</h3>
-            <p>Bilingual quiz game with 300+ questions using C# & .NET. Increased engagement 25%, reduced bugs 30%.</p>
-            <a class="project-link" href="https://github.com/AbdulrahmanMohamedTawfik/Million" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <div class="project-body">
+              <h3>Million LE</h3>
+              <p>Bilingual quiz game with 300+ questions using C# & .NET. Increased engagement 25%, reduced bugs 30%.</p>
+              <div class="project-tags">
+                <span>C#</span><span>.NET</span><span>Game Dev</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/AbdulrahmanMohamedTawfik/Million" target="_blank" rel="noopener"><i class="fab fa-github"></i> Source Code</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section id="skills" class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fas fa-cogs"></i> Skills</span>
+          <h2>Tech Stack & Abilities</h2>
+        </div>
+        <div class="skills-categories">
+          <div class="skill-category" data-animate="fade-up">
+            <div class="skill-category-header">
+              <i class="fas fa-code"></i>
+              <h3>Languages</h3>
+            </div>
+            <div class="skill-items">
+              <span class="skill-chip">C#</span>
+              <span class="skill-chip">Python</span>
+              <span class="skill-chip">C / C++</span>
+              <span class="skill-chip">TypeScript</span>
+              <span class="skill-chip">JavaScript</span>
+            </div>
+          </div>
+          <div class="skill-category" data-animate="fade-up" data-delay="100">
+            <div class="skill-category-header">
+              <i class="fas fa-layer-group"></i>
+              <h3>Frameworks</h3>
+            </div>
+            <div class="skill-items">
+              <span class="skill-chip">ASP.NET Core</span>
+              <span class="skill-chip">MVC</span>
+              <span class="skill-chip">Angular</span>
+              <span class="skill-chip">Bootstrap</span>
+              <span class="skill-chip">WinForms</span>
+            </div>
+          </div>
+          <div class="skill-category" data-animate="fade-up" data-delay="200">
+            <div class="skill-category-header">
+              <i class="fas fa-database"></i>
+              <h3>Databases</h3>
+            </div>
+            <div class="skill-items">
+              <span class="skill-chip">SQL Server</span>
+              <span class="skill-chip">MySQL</span>
+              <span class="skill-chip">Oracle</span>
+              <span class="skill-chip">MongoDB</span>
+            </div>
+          </div>
+          <div class="skill-category" data-animate="fade-up">
+            <div class="skill-category-header">
+              <i class="fas fa-tools"></i>
+              <h3>Tools & Practices</h3>
+            </div>
+            <div class="skill-items">
+              <span class="skill-chip">Visual Studio</span>
+              <span class="skill-chip">REST APIs</span>
+              <span class="skill-chip">Swagger</span>
+              <span class="skill-chip">Postman</span>
+              <span class="skill-chip">Git / GitHub</span>
+            </div>
+          </div>
+          <div class="skill-category" data-animate="fade-up" data-delay="100">
+            <div class="skill-category-header">
+              <i class="fas fa-sitemap"></i>
+              <h3>Architecture</h3>
+            </div>
+            <div class="skill-items">
+              <span class="skill-chip">OOP</span>
+              <span class="skill-chip">Unit of Work</span>
+              <span class="skill-chip">Repository Pattern</span>
+              <span class="skill-chip">Clean Architecture</span>
+            </div>
+          </div>
+          <div class="skill-category" data-animate="fade-up" data-delay="200">
+            <div class="skill-category-header">
+              <i class="fas fa-language"></i>
+              <h3>Spoken Languages</h3>
+            </div>
+            <div class="skill-items">
+              <span class="skill-chip">Arabic <small>(Native)</small></span>
+              <span class="skill-chip">English <small>(Advanced)</small></span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="skills" class="section">
+    <!-- ===== TRAINING & CERTIFICATES ===== -->
+    <section id="training" class="section">
       <div class="container">
-        <h2>Skills & Abilities</h2>
-        <div class="skills-grid">
-          <span>C#</span><span>Python</span><span>C/C++</span><span>TypeScript</span>
-          <span>ASP.NET</span><span>MVC</span><span>Angular</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Bootstrap</span>
-          <span>SQL Server</span><span>MySQL</span><span>Oracle</span><span>MongoDB</span>
-          <span>Visual Studio</span><span>REST APIs</span><span>Swagger</span><span>Postman</span><span>Git</span>
-          <span>OOP</span><span>Unit of Work</span><span>Repository Pattern</span><span>Problem-Solving</span><span>WinForms</span>
-          <span>Arabic (Native)</span><span>English (Advanced)</span>
+        <div class="section-header">
+          <span class="section-tag"><i class="fas fa-certificate"></i> Certifications</span>
+          <h2>Training & Certificates</h2>
+        </div>
+        <div class="certs-grid">
+
+          <div class="cert-card" data-animate="fade-up">
+            <div class="cert-image-wrapper">
+              <img src="images/Certificates/nti-certificate.jpg" alt="DEPI .NET Stack Certificate" class="cert-img max-img">
+              <div class="cert-overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="cert-body">
+              <h3>DEPI — .NET Stack Development</h3>
+              <ul>
+                <li>Full-stack development with .NET Core (API & MVC), C#, and modern front-end technologies.</li>
+                <li>SQL Server, Git/GitHub, unit testing, and Docker containerization.</li>
+                <li>Full capstone project with clean architecture and end-to-end development.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="cert-card" data-animate="fade-up" data-delay="100">
+            <div class="cert-image-wrapper">
+              <img src="images/Certificates/nti-certificate.jpg" alt="NTI MEAN Stack Certificate" class="cert-img max-img">
+              <div class="cert-overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="cert-body">
+              <h3>NTI — MEAN Stack Development</h3>
+              <ul>
+                <li>Built secure Node.js APIs with authentication.</li>
+                <li>Designed Angular responsive interfaces.</li>
+                <li>Managed MongoDB NoSQL databases.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="cert-card" data-animate="fade-up" data-delay="200">
+            <div class="cert-image-wrapper">
+              <img src="images/Certificates/iti-certificate.jpg" alt="ITI Back-End Certificate" class="cert-img max-img">
+              <div class="cert-overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="cert-body">
+              <h3>ITI — Back-End Development</h3>
+              <ul>
+                <li>Built server-side apps with PHP & Laravel.</li>
+                <li>Created responsive front-end with HTML, CSS, JS.</li>
+                <li>Optimized SQL queries and designed scalable DB systems.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="cert-card" data-animate="fade-up">
+            <div class="cert-image-wrapper">
+              <img src="images/Certificates/fcis-certificate.png" alt="FCIS Git & GitHub Certificate" class="cert-img max-img">
+              <div class="cert-overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="cert-body">
+              <h3>FCIS — Git & GitHub Workshop</h3>
+              <ul>
+                <li>Hands-on version control using Git/GitHub.</li>
+                <li>Learned collaborative workflows and repo management.</li>
+              </ul>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <section id="contact" class="section">
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="section section-alt">
       <div class="container">
-        <h2>Contact</h2>
-        <div class="contact-links">
-          <a href="mailto:abdulrahmanmohamedtawfiq@gmail.com" target="_blank"><img src="https://img.icons8.com/ios-glyphs/30/000000/email.png" alt="Email"></a>
-          <a href="tel:+201113793255" target="_blank"><img src="https://img.icons8.com/ios-glyphs/30/000000/phone.png" alt="Phone"></a>
-          <a href="http://www.linkedin.com/in/abdulrahman-mohamed-123abc" target="_blank"><img src="https://img.icons8.com/ios-filled/30/000000/linkedin.png" alt="LinkedIn"></a>
-          <a href="https://github.com/Abdulrahman-Mohamed-Tawfik" target="_blank"><img src="https://img.icons8.com/ios-glyphs/30/000000/github.png" alt="GitHub"></a>
+        <div class="section-header">
+          <span class="section-tag"><i class="fas fa-envelope"></i> Contact</span>
+          <h2>Let's Connect</h2>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <p>I'm always open to discussing new opportunities, projects, or just having a chat about technology.</p>
+            <div class="contact-cards">
+              <a href="mailto:abdulrahmanmohamedtawfiq@gmail.com" class="contact-card">
+                <div class="contact-card-icon"><i class="fas fa-envelope"></i></div>
+                <div>
+                  <strong>Email</strong>
+                  <span>abdulrahmanmohamedtawfiq@gmail.com</span>
+                </div>
+              </a>
+              <a href="tel:+201113793255" class="contact-card">
+                <div class="contact-card-icon"><i class="fas fa-phone"></i></div>
+                <div>
+                  <strong>Phone</strong>
+                  <span>+20 111 379 3255</span>
+                </div>
+              </a>
+              <a href="http://www.linkedin.com/in/abdulrahman-mohamed-123abc" target="_blank" rel="noopener" class="contact-card">
+                <div class="contact-card-icon"><i class="fab fa-linkedin-in"></i></div>
+                <div>
+                  <strong>LinkedIn</strong>
+                  <span>abdulrahman-mohamed</span>
+                </div>
+              </a>
+              <a href="https://github.com/Abdulrahman-Mohamed-Tawfik" target="_blank" rel="noopener" class="contact-card">
+                <div class="contact-card-icon"><i class="fab fa-github"></i></div>
+                <div>
+                  <strong>GitHub</strong>
+                  <span>Abdulrahman-Mohamed-Tawfik</span>
+                </div>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+
   </main>
 
-  <!-- Modal for maximizing images -->
-  <div id="imgModal" class="img-modal">
-    <span class="img-modal-close" id="imgModalClose">&times;</span>
-    <img class="img-modal-content" id="imgModalImg" alt="Maximized Project Image">
-  </div>
-
-  <!-- Floating Back to Top Button -->
-  <button id="backToTopBtn" title="Back to Top">
-    <svg width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;">
-      <polyline points="8,16 14,10 20,16" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </button>
-
-  <footer>
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
     <div class="container">
-      <p>&copy; 2025 Abdulrahman Mohamed Tawfik. All Rights Reserved.</p>
-      <p><a href="mailto:abdulrahmanmohamedtawfiq@gmail.com">abdulrahmanmohamedtawfiq@gmail.com</a> | <a href="http://www.linkedin.com/in/abdulrahman-mohamed-123abc" target="_blank">LinkedIn</a> | <a href="https://github.com/Abdulrahman-Mohamed-Tawfik" target="_blank">GitHub</a></p>
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="footer-logo">Abdulrahman<span class="logo-dot">.</span></span>
+          <p>Building the backend of tomorrow.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-social">
+          <a href="https://github.com/Abdulrahman-Mohamed-Tawfik" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="http://www.linkedin.com/in/abdulrahman-mohamed-123abc" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="mailto:abdulrahmanmohamedtawfiq@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Abdulrahman Mohamed Tawfik. Crafted with <i class="fas fa-heart" style="color: var(--accent);"></i></p>
+      </div>
     </div>
   </footer>
-  <script src="script.js"></script>
-  <script>
-    // Maximize certificate image
-    function maximizeCertificate(img) {
-      var modal = document.getElementById('imgModal');
-      var modalImg = document.getElementById('imgModalImg');
-      modal.style.display = "block";
-      modalImg.src = img.src;
-      modalImg.alt = img.alt;
-    }
-    // Close modal
-    document.getElementById('imgModalClose').onclick = function() {
-      document.getElementById('imgModal').style.display = "none";
-    };
-    // Hide modal when clicking outside image
-    document.getElementById('imgModal').onclick = function(e) {
-      if (e.target === this) this.style.display = "none";
-    };
 
-    // Back to Top button logic
-    const backToTopBtn = document.getElementById('backToTopBtn');
-    window.onscroll = function() {
-      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-        backToTopBtn.style.display = "block";
-      } else {
-        backToTopBtn.style.display = "none";
-      }
-    };
-    backToTopBtn.onclick = function() {
-      window.scrollTo({top: 0, behavior: 'smooth'});
-    };
-  </script>
+  <!-- Image Modal -->
+  <div id="imgModal" class="img-modal" role="dialog" aria-modal="true">
+    <button class="img-modal-close" id="imgModalClose" aria-label="Close">&times;</button>
+    <img class="img-modal-content" id="imgModalImg" alt="Maximized Image">
+  </div>
+
+  <!-- Back to Top -->
+  <button id="backToTopBtn" class="back-to-top" title="Back to Top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="script.js"></script>
 </body>
 </html>
