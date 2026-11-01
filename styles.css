@@ -912,11 +912,20 @@ img {
   grid-column: 1 / -1;
 }
 
+.project-wide .gallery-track img {
+  height: auto;
+  aspect-ratio: 1920 / 915;
+}
+
 .project-highlights {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
   padding: 64px 24px 0;
+}
+
+.project-gallery + .project-highlights {
+  padding-top: 16px;
 }
 
 .project-highlight {
